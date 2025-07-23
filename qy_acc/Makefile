@@ -19,7 +19,7 @@ define Package/$(PKG_NAME)
 endef
 
 define Package/$(PKG_NAME)/description
-  NetEase's UU Game Booster Accelerates Triple-A Gameplay and Market.
+  QiYou acc plugin
 endef
 
 define Build/Prepare
