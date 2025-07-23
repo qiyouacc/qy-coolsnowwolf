@@ -6,7 +6,6 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)_$(PKG_VERSION)
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
-PKG_SOURCE_URL:=https://github.com/qiyouacc/qy-openwrt.git
 PKG_LICENSE:=Proprietary
 
 include $(INCLUDE_DIR)/package.mk
