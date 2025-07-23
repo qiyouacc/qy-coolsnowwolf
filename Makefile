@@ -12,7 +12,7 @@ define Package/$(PKG_NAME)
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=qy acc pkg
-	DEPENDS:=
+	DEPENDS:=+kmod-tun
 endef
 
 define Build/Prepare
