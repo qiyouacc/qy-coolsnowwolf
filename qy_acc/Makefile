@@ -1,7 +1,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qy_acc
-PKG_VERSION:=1.0.4
+PKG_VERSION:=1.2.0
+PKG_RELEASE:=1
 
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)_$(PKG_VERSION)
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
@@ -13,6 +14,11 @@ define Package/$(PKG_NAME)
 	CATEGORY:=Network
 	TITLE:=qy acc pkg
 	DEPENDS:=+kmod-tun
+	URL:=https://www.qiyou.cn
+endef
+
+define Package/$(PKG_NAME)/description
+  NetEase's UU Game Booster Accelerates Triple-A Gameplay and Market.
 endef
 
 define Build/Prepare
