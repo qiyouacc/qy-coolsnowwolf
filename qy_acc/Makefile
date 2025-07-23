@@ -14,7 +14,7 @@ define Package/$(PKG_NAME)
   SECTION:=net
   CATEGORY:=Network
   TITLE:=qy acc pkg
-  DEPENDS:=+kmod-tun
+  DEPENDS:=+kmod-tun +curl
   URL:=https://www.qiyou.cn
 endef
 
