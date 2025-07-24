@@ -1,0 +1,22 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: applications/luci-app-qy_acc/htdocs/luci-static/resources/view/qiyougameboost.js:47
+msgid "QiYou Game Boost"
+msgstr ""
+
+#: applications/luci-app-qy_acc/htdocs/luci-static/resources/view/qiyougameboost.js:48
+msgid "Play console games online with less lag and more stability."
+msgstr ""
+
+#: applications/luci-app-qy_acc/htdocs/luci-static/resources/view/qiyougameboost.js:49
+msgid "— now supporting PS, Switch, Xbox, PC, and mobile."
+msgstr ""
+
+#: applications/luci-app-qy_acc/htdocs/luci-static/resources/view/qiyougameboost.js:63
+msgid "Collecting data..."
+msgstr ""
+
+#: applications/luci-app-qy_acc/htdocs/luci-static/resources/view/qiyougameboost.js:67
+msgid "Enable"
+msgstr ""

@@ -1,0 +1,13 @@
+{
+	"admin/services/qiyougameboost": {
+		"title": "QiYou Game Boost",
+		"action": {
+			"type": "view",
+			"path": "qiyougameboost"
+		},
+		"depends": {
+			"acl": [ "luci-app-qiyougameboost" ],
+			"uci": { "qiyougameboost": true }
+		}
+	}
+}
