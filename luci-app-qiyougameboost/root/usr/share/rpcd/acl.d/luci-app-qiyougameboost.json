@@ -2,6 +2,9 @@
 	"luci-app-qiyougameboost": { 
 		"description": "Grant UCI access for luci-app-qiyougameboost",
 		"read": {
+			"ubus": {
+				"service": [ "list" ]
+			},
 			"uci": [ "qiyougameboost" ]
 		},
 		"write": {
