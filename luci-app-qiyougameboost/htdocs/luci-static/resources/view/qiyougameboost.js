@@ -26,9 +26,9 @@ function renderStatus(isRunning) {
 	var spanTemp = '<span style="color:%s"><strong>%s %s</strong></span>';
 	var renderHTML;
 	if (isRunning) {
-		renderHTML = spanTemp.format('green', _('qiyougameboost'), _('RUNNING'));
+		renderHTML = spanTemp.format('green', _('QiYou Game Boost'), _('RUNNING'));
 	} else {
-		renderHTML = spanTemp.format('red', _('qiyougameboost'), _('NOT RUNNING'));
+		renderHTML = spanTemp.format('red', _('QiYou Game Boost'), _('NOT RUNNING'));
 	}
 
 	return renderHTML;
@@ -41,16 +41,16 @@ return view.extend({
 		]);
 	},
 
-    render: function() {
-        let m, s, o;
+	render: function() {
+		let m, s, o;
 
-        m = new form.Map('qiyougameboost', _('QiYou Game Boost'),
-            _('Play console games online with less lag and more stability.') + '<br />' + 
+		m = new form.Map('qiyougameboost', _('QiYou Game Boost'),
+			_('Play console games online with less lag and more stability.') + '<br />' + 
 			_('— now supporting PS, Switch, Xbox, PC, and mobile.'));
 
-        s = m.section(form.TypedSection);
-        s.anonymous = true;
-        s.render = function () {
+		s = m.section(form.TypedSection);
+		s.anonymous = true;
+		s.render = function () {
 			poll.add(function () {
 				return L.resolveDefault(getServiceStatus()).then(function (res) {
 					var view = document.getElementById('service_status');
@@ -65,7 +65,7 @@ return view.extend({
 
 		s = m.section(form.NamedSection, 'config', 'qiyougameboost');
 
-        o = s.option(form.Flag, 'enabled', _('Enable'));
+		o = s.option(form.Flag, 'enabled', _('Enable'));
 		o.default = o.disabled;
 		o.rmempty = false;
 
@@ -80,7 +80,7 @@ return view.extend({
 		}
 
 
-        return m.render();
+		return m.render();
     }
 
 });
