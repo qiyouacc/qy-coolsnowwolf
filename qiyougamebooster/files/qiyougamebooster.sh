@@ -78,37 +78,42 @@ status(){
 
 	if [ "${status}" = "succeeded" ]; then
 		if [ ! -d /tmp/qy ]; then
-			echo "未安装"
+			printf "NOT ENABLED"
 		elif [ "${acc}" = "" ]; then
-			echo "关闭"
+			printf "CLOSED"
 		elif [ -d /sys/class/net/tun31 ] || [ -d /sys/class/net/tun32 ]; then
-			echo "加速中"
+			printf "BOOSTING"
 		else
-			echo "正常"
+			printf "RUNNING"
 		fi
 		return
 	fi
 	if [ "${status}" = "notsupport" ]; then
-		echo "此型号不支持"
+		printf "NOT SUPPORTED"
 		return
 	fi
 	if [ "${status}" = "getpkgerr" ]; then
-		echo "下载中"
+		printf "DOWNLOADING"
 		return
 	fi
 	if [ "${get}" != "" ] && [ -e "/proc/${get}" ]; then
-		echo "安装中"
+		printf "INSTALLING"
 		return
 	fi
 	if [ "${pid}" != "" ] && [ -e "/proc/${pid}" ]; then
-		echo "安装中"
+		printf "INSTALLING"
 		return
 	fi
 	if [ ! -d /tmp/qy ]; then
-		echo "未安装"
+		printf "NOT ENABLED"
 		return
 	fi
-	echo "未启动"
+	printf "NOT RUNNING"
+}
+
+version(){
+	ver=`sed -n 's;^VERSION=;;p' /tmp/qy/etc/PKG_INFO 2> /dev/null`
+	printf "${ver}"
 }
 
 case $ACTION in
@@ -127,6 +132,9 @@ enable)
 	;;
 disable)
 	switch off
+	;;
+version)
+	version
 	;;
 *)
 	start
