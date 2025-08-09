@@ -1,13 +1,15 @@
+# SPDX-License-Identifier: Apache-2.0
+#
+
 include $(TOPDIR)/rules.mk
 
-LUCI_TITLE:=LuCI support for Qiyou Game Booster
-LUCI_DESCRIPTION:=provides Web UI to Qiyou Game Booster.
+PKG_LICENSE:=Apache-2.0
+
+LUCI_TITLE:=LuCI app for QiYou Game Booster
 LUCI_DEPENDS:=+qiyougamebooster
 LUCI_PKGARCH:=all
 
-PKG_NAME:=luci-app-qiyougamebooster
-PKG_VERSION:=1.2.0
-PKG_RELEASE:=1
+PKG_MAINTAINER:=qiyouacc, Internet1235
 
 include $(TOPDIR)/feeds/luci/luci.mk
 
