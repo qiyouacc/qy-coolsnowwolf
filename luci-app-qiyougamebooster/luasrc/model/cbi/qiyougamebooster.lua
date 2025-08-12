@@ -1,28 +1,28 @@
-local sys = require("luci.sys")
+require("luci.sys")
 
-local m = Map("qiyougamebooster",
-	translate("Qiyou Game Booster"),
-		translate("Play console games online with less lag and more stability.")
-		 .. "<br />"
-		 .. translate("— now supporting PS, Switch, Xbox, PC, and mobile."))
+m = Map("qiyougamebooster", translate("QiYou Game Booster"),
+	translate("Play console games online with less lag and more stability.") .. "<br />" ..
+	translate("— now supporting PS, Switch, Xbox, PC, and mobile."))
 
-local s = m:section(TypedSection, "qiyougamebooster")
+s = m:section(TypedSection, "qiyougamebooster")
 s.anonymous = true
 s.addremove = false
 
-local sts = sys.exec("qiyougamebooster.sh status 2> /dev/null")
-local ver = sys.exec("qiyougamebooster.sh version 2> /dev/null")
-local status = s:option(DummyValue, "status")
-status.rawhtml = true
-status.value = "<p style='color:green'><strong>"
-	.. translate("Status") .. ": " .. ver .. " " .. translate(sts)
-	.. "</strong></p>"
+sts = luci.sys.exec("qiyougamebooster.sh status 2> /dev/null")
+ver = luci.sys.exec("qiyougamebooster.sh version 2> /dev/null")
+o = s:option(DummyValue, "status")
+o.rawhtml = true
+if sts == "NOT ENABLED" or sts == "NOT SUPPORTED" or sts == "NOT RUNNING" then
+	o.value = string.format('<span style="color:%s"><strong>%s: %s %s</strong></span>', "red", translate("Status"), ver, translate(sts))
+else
+	o.value = string.format('<span style="color:%s"><strong>%s: %s %s</strong></span>', "green", translate("Status"), ver, translate(sts))
+end
 
-local switch = s:option(Flag, "enable", translate("Enable"))
-switch.default = 0
+o = s:option(Flag, "enabled", translate("Enable"))
+o.default = 0
 
-local instructions = s:option(DummyValue, "instructions")
-instructions.rawhtml = true
-instructions.value = "<p><img src='/qiyougamebooster.png' height='300'/></p>"
+o = s:option(DummyValue, "instructions")
+o.rawhtml = true
+o.value = "<p><img src='/qiyougamebooster/Tutorial.png' height='350'/></p>"
 
 return m
