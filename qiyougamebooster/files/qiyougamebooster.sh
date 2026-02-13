@@ -59,7 +59,7 @@ switch(){
 	act=$1
 
 	if [ ! -d /tmp/qy ]; then
-		echo "没安装"
+		echo "NOT ENABLED"
 		return
 	fi
 
